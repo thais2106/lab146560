@@ -1,5 +1,6 @@
 package br.univel.entity;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
@@ -7,7 +8,7 @@ import java.util.List;
  * 11 de ago de 2016
  */
 
-public class Venda {
+public class Venda implements Serializable{
 
 	private int idVenda;
 	private List<String> itens;

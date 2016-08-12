@@ -1,11 +1,13 @@
 package br.univel.entity;
 
+import java.io.Serializable;
+
 /**
  * @author tcrivelatti
  * 11 de ago de 2016
  */
 
-public class Entrega {
+public class Entrega implements Serializable {
 
 	private int idEntrega;
 	private String endereco;
