@@ -11,6 +11,15 @@ public class Entrega implements Serializable {
 
 	private int idEntrega;
 	private String endereco;
+	
+	public Entrega(){
+		
+	}
+	
+	public Entrega(int idEntrega, String endereco){
+		this.idEntrega = idEntrega;
+		this.endereco = endereco;
+	}
 
 	public int getIdEntrega() {
 		return idEntrega;

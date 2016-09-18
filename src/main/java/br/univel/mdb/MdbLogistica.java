@@ -4,9 +4,12 @@ import java.util.logging.Logger;
 
 import javax.ejb.ActivationConfigProperty;
 import javax.ejb.MessageDriven;
+import javax.jms.JMSException;
 import javax.jms.Message;
 import javax.jms.MessageListener;
 import javax.jms.ObjectMessage;
+
+import br.univel.entity.Entrega;
 
 /**
  * @author Thaís 
@@ -29,19 +32,19 @@ public class MdbLogistica implements MessageListener {
 		try {
 			if (rcvMessage instanceof ObjectMessage){
 				msg = (ObjectMessage) rcvMessage;
+				Entrega entrega = (Entrega) msg.getObject();
 				
-				
-				LOGGER.info("Mensagem recebida da fila: " + msg);
+				LOGGER.info("Mensagem recebida da fila.");
 				LOGGER.info("Processando...");
 				
-				Thread.sleep(30000);
+				Thread.sleep(20000);
 				
-				LOGGER.info("Entrega despachada!");
+				LOGGER.info("Entrega " + entrega.getIdEntrega() + " concluída!");
 			} else {
 				LOGGER.warning("Message of Wrong type: " + rcvMessage);
 			}
 			
-		} catch (InterruptedException e) {
+		} catch (InterruptedException | JMSException e) {
 			e.printStackTrace();
 		} 
 		

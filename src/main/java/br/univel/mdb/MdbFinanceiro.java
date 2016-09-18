@@ -33,6 +33,7 @@ public class MdbFinanceiro implements MessageListener{
         	 if (rcvMessage instanceof ObjectMessage) {
                  msg = (ObjectMessage) rcvMessage;
                  Venda venda = (Venda) msg.getObject();
+                 LOGGER.info("Venda nº " +venda.getIdVenda()+ " recebida.");
              } else {
                  LOGGER.warning("Message of wrong type:" + rcvMessage.getClass().getName());
              }

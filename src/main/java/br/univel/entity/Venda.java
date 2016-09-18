@@ -12,6 +12,15 @@ public class Venda implements Serializable{
 
 	private int idVenda;
 	private List<String> itens;
+	
+	public Venda(){
+		
+	}
+	
+	public Venda(int idVenda, List<String> itens){
+		this.idVenda = idVenda;
+		this.itens = itens;
+	}
 
 	public int getIdVenda() {
 		return idVenda;
