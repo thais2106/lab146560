@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.ejb.EJB;
+import javax.inject.Inject;
+import javax.jms.JMSContext;
 import javax.jms.JMSException;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -27,6 +29,9 @@ public class VendaJaxWS extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
+	@Inject 
+	public JMSContext context;
+	
 	@EJB
 	private ProcessVenda processVenda;
 

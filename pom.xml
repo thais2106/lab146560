@@ -1,5 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>lab146560</groupId>
 	<artifactId>lab146560</artifactId>
@@ -46,12 +46,25 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
+			<dependency>
+        <groupId>org.jboss.spec</groupId>
+        <artifactId>jboss-javaee-6.0</artifactId>
+        <version>3.0.3.Final</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
 		</dependencies>
 	</dependencyManagement>
 
 	<dependencies>
 		<!-- Import the Servlet API, we use provided scope as the API is included 
 			in WildFly 8 -->
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.1.0.Final</version>
+		</dependency>
 		<dependency>
 			<groupId>org.jboss.spec.javax.servlet</groupId>
 			<artifactId>jboss-servlet-api_3.1_spec</artifactId>
@@ -72,6 +85,11 @@
 			<artifactId>cdi-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+      <groupId>org.hibernate.javax.persistence</groupId>
+      <artifactId>hibernate-jpa-2.0-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
 	</dependencies>
 
 	<build>
