@@ -1,19 +1,11 @@
 package br.univel.servlet;
 
-import java.io.IOException;
-
 import javax.ejb.EJB;
-import javax.inject.Inject;
-import javax.jms.JMSContext;
 import javax.jms.JMSException;
 import javax.jws.WebMethod;
-import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import br.univel.ejb.ProcessEntrega;
 import br.univel.entity.Entrega;
@@ -28,17 +20,12 @@ public class EntregaJaxWS extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 	
-	@Inject 
-	public JMSContext context;
-	
 	@EJB
 	private ProcessEntrega processEntrega;
 
 	@WebMethod(operationName="operacaoEntrega") //Denota que o método está disponível para serviço Web 
 	@WebResult(name="resultadoEntrega") //Controla o resultado gerado pelo WebMethod
-	@Override
-	protected void doGet(@WebParam(name = "paramReq") HttpServletRequest req,
-			@WebParam(name = "paramResp") HttpServletResponse resp) throws ServletException, IOException {
+	public void serviceEntrega() {
 
 		Entrega entrega = new Entrega(2, "Boulevard of Broken Dreams");
 		

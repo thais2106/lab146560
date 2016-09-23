@@ -1,0 +1,1 @@
+wsimport -p br.univel.VendaJaxWSclient -keep -d src_ws http://localhost:8080/lab146560/VendaJaxWS?wsdl

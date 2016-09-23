@@ -1,20 +1,12 @@
 package br.univel.servlet;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.ejb.EJB;
-import javax.inject.Inject;
-import javax.jms.JMSContext;
 import javax.jms.JMSException;
 import javax.jws.WebMethod;
-import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import br.univel.ejb.ProcessVenda;
 import br.univel.entity.Venda;
@@ -25,21 +17,16 @@ import br.univel.entity.Venda;
  */
 
 @WebService
-public class VendaJaxWS extends HttpServlet {
+public class VendaJaxWS {
 
 	private static final long serialVersionUID = 1L;
-
-	@Inject 
-	public JMSContext context;
 	
 	@EJB
 	private ProcessVenda processVenda;
 
 	@WebMethod(operationName = "operacaoVenda") //Denota que o método está disponível para serviço Web 
 	@WebResult(name = "resultadoVenda") //Controla o resultado gerado pelo WebMethod
-	@Override
-	protected void doGet(@WebParam(name = "paramReq") HttpServletRequest req,
-			@WebParam(name = "paramResp") HttpServletResponse resp) throws ServletException, IOException {
+	public void serviceEnviarVenda() {
 
 		ArrayList<String> itens = new ArrayList<>();
 		itens.add("Caneta");
