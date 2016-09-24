@@ -1,4 +1,4 @@
-package br.univel.servlet;
+package br.univel.webservice;
 
 import java.util.ArrayList;
 

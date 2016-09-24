@@ -1,4 +1,4 @@
-package br.univel.servlet;
+package br.univel.webservice;
 
 import javax.ejb.EJB;
 import javax.jms.JMSException;
@@ -16,7 +16,7 @@ import br.univel.entity.Entrega;
  */
 
 @WebService
-public class EntregaJaxWS extends HttpServlet {
+public class EntregaJaxWS {
 
 	private static final long serialVersionUID = 1L;
 	
